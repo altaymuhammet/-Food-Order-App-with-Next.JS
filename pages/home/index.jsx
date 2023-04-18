@@ -4,16 +4,18 @@ import Campaigns from '@/Components/Campaigns';
 import MenuWrapper from '@/Components/menu/MenuWrapper';
 import About from '@/Components/About';
 import Reservation from '@/Components/Reservation';
+import Customers from '@/Components/Customers/Customers';
 
 const Home = () => {
   return (
-    <div>
+    <>
         <Carousel />
         <Campaigns />
         <MenuWrapper />
         <About />
         <Reservation />
-    </div>
+        <Customers />
+    </>
   )
 }
 
