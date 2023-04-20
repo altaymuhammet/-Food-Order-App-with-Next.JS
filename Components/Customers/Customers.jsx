@@ -33,7 +33,7 @@ const Customers = () => {
       }]
   };
   return (
-    <div className="container mx-auto mt-16">
+    <div className="container mx-auto mt-16 h-auto pb-48">
       <div className="w-full flex flex-col justify-center items-center gap-10">
         <Title addClass="text-4xl">What Our Customers Think?</Title>
           <Slider {...settings} className="w-full h-auto">
