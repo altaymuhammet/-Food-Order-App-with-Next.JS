@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdCancel } from "react-icons/md";
 import Search from "../search/Search";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
@@ -12,9 +13,15 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <div className={`h-[5.5rem] z-[500] ${router.asPath === "/" ? "bg-transparent" : "bg-secondary"}`}>
+    <div
+      className={`h-[5.5rem] z-[500] ${
+        router.asPath === "/" ? "bg-transparent" : "bg-secondary"
+      }`}
+    >
       <div className="container mx-auto h-full flex flex-row justify-between items-center ">
-        <div className="z-[999]"><Logo /></div>
+        <div className="z-[999]">
+          <Logo />
+        </div>
         <nav
           className={`${
             isMenuOpened !== true ? "hidden" : "inline-block"
@@ -33,16 +40,24 @@ const Header = () => {
           </button>
           <ul className="z-50 w-full md:w-auto flex flex-col md:flex-row justify-center md:justify-between items-center md:text-white gap-x-[1rem] ">
             <li className="w-full md:w-auto px-[.35rem] py-[1.25rem] hover:text-primary cursor-pointer transition-all text-center">
-              <a href="">Home</a>
+              <Link href="/" onClick={() => setIsMenuOpened(false)}>
+                Home
+              </Link>
             </li>
             <li className="w-full md:w-auto px-[.35rem] py-[1.25rem] hover:text-primary cursor-pointer transition-all text-center">
-              <a href="">Menu</a>
+              <Link href="/menu" onClick={() => setIsMenuOpened(false)}>
+                Menu
+              </Link>
             </li>
             <li className="w-full md:w-auto px-[.35rem] py-[1.25rem] hover:text-primary cursor-pointer transition-all text-center">
-              <a href="">About</a>
+              <Link href="/about" onClick={() => setIsMenuOpened(false)}>
+                About
+              </Link>
             </li>
             <li className="w-full md:w-auto px-[.35rem] py-[1.25rem] hover:text-primary cursor-pointer transition-all text-center">
-              <a href="">Book Table</a>
+              <Link href="/reservation" onClick={() => setIsMenuOpened(false)}>
+                Book Table
+              </Link>
             </li>
             <li className="w-full md:hidden md:w-auto px-[.35rem] py-[1.25rem] hover:text-primary transition-all text-center">
               <button className="btn-primary cursor-pointer hover:shadow-md">
@@ -52,12 +67,14 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex flex-row justify-between items-center gap-x-[1.75rem] z-[999]">
-          <button className="text-white hover:text-primary transition-all text-lg cursor-pointer">
-            <FaUserAlt />
-          </button>
-          <button className="text-white hover:text-primary transition-all text-lg cursor-pointer">
+          <Link href="/login/Login">
+            <button className="text-white hover:text-primary transition-all text-lg cursor-pointer">
+              <FaUserAlt />
+            </button>
+          </Link>
+          <Link href="/cart" className="text-white hover:text-primary transition-all text-lg cursor-pointer">
             <FaShoppingCart />
-          </button>
+          </Link>
           <button
             className="text-white hover:text-primary transition-all text-lg cursor-pointer"
             onClick={() => setIsSearchModal(true)}

@@ -5,7 +5,6 @@ import MenuWrapper from '@/Components/menu/MenuWrapper';
 import About from '@/Components/About';
 import Reservation from '@/Components/Reservation';
 import Customers from '@/Components/Customers/Customers';
-import Footer from '@/Components/Layout/Footer';
 
 const Home = () => {
   return (
@@ -16,7 +15,6 @@ const Home = () => {
         <About />
         <Reservation />
         <Customers />
-        <Footer />
     </>
   )
 }
