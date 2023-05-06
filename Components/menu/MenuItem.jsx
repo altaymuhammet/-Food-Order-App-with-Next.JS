@@ -1,20 +1,23 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
 const MenuItem = () => {
   return (
     <div className="bg-secondary w-[320px] rounded-2xl shadow-xl">
-      <div className="relative py-8 w-full rounded-t-xl flex justify-center items-center bg-gray-100 rounded-bl-[46px] ">
-        <Image
-          src="/images/pizza.png"
-          alt="Card Image"
-          width={150}
-          height={150}
-          objectFit="cover"
-          className="hover:scale-110 transition-all"
-        />
-      </div>
+      <Link href="/product">
+        <div className="relative py-8 w-full rounded-t-xl flex justify-center items-center bg-gray-100 rounded-bl-[46px] ">
+          <Image
+            src="/images/pizza.png"
+            alt="Card Image"
+            width={150}
+            height={150}
+            objectFit="cover"
+            className="hover:scale-110 transition-all"
+          />
+        </div>
+      </Link>
       <div className="text-white px-6 py-5">
         <h3 className="text-lg mb-3">Delicious Pizza</h3>
         <p className="text-md w-full">

@@ -6,11 +6,13 @@ import { MdCancel } from "react-icons/md";
 import Search from "../search/Search";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const router = useRouter();
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div
@@ -72,8 +74,14 @@ const Header = () => {
               <FaUserAlt />
             </button>
           </Link>
-          <Link href="/cart" className="text-white hover:text-primary transition-all text-lg cursor-pointer">
+          <Link
+            href="/cart"
+            className="text-white hover:text-primary transition-all text-lg cursor-pointer relative"
+          >
             <FaShoppingCart />
+            <span className="w-5 h-5 text-xs grid place-content-center rounded-full bg-primary absolute -top-3 -right-4 text-secondary font-bold">
+              {cart.products.length === 0 ? "0" : cart.products.length}
+            </span>
           </Link>
           <button
             className="text-white hover:text-primary transition-all text-lg cursor-pointer"
