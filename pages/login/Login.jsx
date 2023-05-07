@@ -5,8 +5,12 @@ import { useFormik } from "formik";
 import { loginSchema } from "@/schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
 
 const Login = () => {
+  const { data: session } = useSession();
+  console.log(session)
+
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 400));
     actions.resetForm();
@@ -59,8 +63,14 @@ const Login = () => {
             ))}
           </div>
           <div className="w-full flex flex-col justify-center items-center gap-y-3">
-            <button className="btn-primary w-full md:w-1/2">Login</button>
-            <button className="btn-secondary w-full md:w-1/2 flex justify-center items-center gap-x-3">
+            <button className="btn-primary w-full md:w-1/2" type="submit">
+              Login
+            </button>
+            <button
+              className="btn-secondary w-full md:w-1/2 flex justify-center items-center gap-x-3"
+              type="button"
+              onClick={() => signIn("github")}
+            >
               <FaGithub className="text-white" />
               <span className="text-white">Github</span>
             </button>
